@@ -264,3 +264,526 @@ h1 {
 .intro-line {
   display: block;
 }
+
+
+/* =========================
+   Girl Reveal Page - Gift Box Version
+========================= */
+
+.girl-reveal-page {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 18%, rgba(255, 255, 255, 0.9), transparent 24%),
+    radial-gradient(circle at 82% 72%, rgba(255, 214, 232, 0.85), transparent 26%),
+    linear-gradient(135deg, #ffe4f1 0%, #fff7fb 45%, #ffd1e5 100%);
+}
+
+.gift-scene {
+  position: relative;
+  width: min(100%, 430px);
+  min-height: 680px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 선물상자 */
+.gift-box-stage {
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  z-index: 8;
+  width: 250px;
+  height: 210px;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+.gift-box-body {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: 0;
+  width: 230px;
+  height: 150px;
+  transform: translateX(-50%);
+  border-radius: 18px 18px 28px 28px;
+  background: linear-gradient(135deg, #ff9ac6, #ff6fae);
+  box-shadow: 0 18px 38px rgba(232, 93, 158, 0.25);
+  overflow: hidden;
+}
+
+.gift-lid {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 22px;
+  width: 260px;
+  height: 70px;
+  transform: translateX(-50%);
+  border-radius: 18px;
+  background: linear-gradient(135deg, #ffb0d2, #ff6fae);
+  box-shadow: 0 12px 26px rgba(232, 93, 158, 0.22);
+  transform-origin: center bottom;
+}
+
+.gift-box-ribbon.vertical,
+.gift-lid-ribbon {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 42px;
+  height: 100%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.gift-box-ribbon.horizontal {
+  position: absolute;
+  left: 0;
+  top: 54px;
+  width: 100%;
+  height: 34px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.gift-lid::before,
+.gift-lid::after {
+  content: "";
+  position: absolute;
+  top: -38px;
+  width: 76px;
+  height: 58px;
+  border: 16px solid rgba(255, 255, 255, 0.78);
+  border-radius: 50% 50% 45% 45%;
+}
+
+.gift-lid::before {
+  left: 45px;
+  transform: rotate(-26deg);
+}
+
+.gift-lid::after {
+  right: 45px;
+  transform: rotate(26deg);
+}
+
+/* 인트로가 끝난 뒤 상자 애니메이션 시작 */
+body.intro-finished .gift-lid {
+  animation: openGiftLid 1s ease-in-out 0.25s forwards;
+}
+
+body.intro-finished .gift-box-body {
+  animation: giftBodyDown 0.85s ease-in-out 1.05s forwards;
+}
+
+body.intro-finished .gift-box-stage {
+  animation: giftStageFade 0.5s ease 1.55s forwards;
+}
+
+/* 공개 콘텐츠 */
+.girl-reveal-content {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  min-height: 680px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(30px) scale(0.9);
+}
+
+body.intro-finished .girl-reveal-content {
+  animation: revealGirlContent 0.85s cubic-bezier(0.2, 1.2, 0.3, 1) 1.15s forwards;
+}
+
+/* 리본 라벨 */
+.ribbon-label {
+  position: relative;
+  z-index: 6;
+  margin-bottom: 8px;
+  padding: 14px 42px;
+  color: #fff;
+  background: linear-gradient(135deg, #ff83b7, #ff4f9a);
+  border-radius: 8px;
+  box-shadow: 0 12px 26px rgba(232, 93, 158, 0.28);
+  transform: rotate(-2deg);
+}
+
+.ribbon-label::before,
+.ribbon-label::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 28px;
+  height: 38px;
+  background: #f062a6;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+
+.ribbon-label::before {
+  left: -18px;
+  clip-path: polygon(0 0, 100% 18%, 100% 82%, 0 100%, 28% 50%);
+}
+
+.ribbon-label::after {
+  right: -18px;
+  clip-path: polygon(0 18%, 100% 0, 72% 50%, 100% 100%, 0 82%);
+}
+
+.ribbon-text {
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  text-shadow: 0 2px 8px rgba(167, 34, 100, 0.22);
+}
+
+/* 아기 이미지 영역 */
+.girl-hero {
+  position: relative;
+  width: 100%;
+  height: 430px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.girl-baby-img {
+  position: relative;
+  z-index: 4;
+  width: min(82vw, 310px);
+  max-width: 100%;
+  animation: babyFloat 3.4s ease-in-out infinite;
+  filter: drop-shadow(0 18px 28px rgba(215, 91, 146, 0.2));
+}
+
+.girl-side-item {
+  position: absolute;
+  z-index: 3;
+  width: 92px;
+  opacity: 0;
+  filter: drop-shadow(0 10px 16px rgba(220, 92, 150, 0.16));
+}
+
+body.intro-finished .girl-side-item {
+  animation: sideItemPop 0.7s cubic-bezier(0.2, 1.3, 0.3, 1) forwards,
+             sideItemFloat 4s ease-in-out 0.7s infinite;
+}
+
+.girl-dress {
+  left: 4%;
+  bottom: 76px;
+  transform: rotate(-10deg) scale(0.5);
+  animation-delay: 1.45s, 2.2s;
+}
+
+.teddy-bear {
+  right: 3%;
+  bottom: 68px;
+  transform: rotate(9deg) scale(0.5);
+  animation-delay: 1.65s, 2.35s;
+}
+
+/* 하트 뿜뿜 */
+.heart-burst {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  color: #ff73ad;
+  font-size: 28px;
+  opacity: 0;
+  text-shadow:
+    0 4px 14px rgba(255, 115, 173, 0.28),
+    0 8px 28px rgba(255, 255, 255, 0.5);
+}
+
+body.intro-finished .heart {
+  animation: heartPopFloat 3.6s ease-in-out infinite;
+}
+
+.h1 { left: 18%; top: 19%; font-size: 34px; animation-delay: 1.1s; }
+.h2 { right: 17%; top: 16%; color: #ff9bc6; font-size: 26px; animation-delay: 1.25s; }
+.h3 { left: 12%; top: 43%; color: #ff5fa6; font-size: 22px; animation-delay: 1.35s; }
+.h4 { right: 12%; top: 42%; font-size: 38px; animation-delay: 1.5s; }
+.h5 { left: 28%; bottom: 20%; color: #ffa6cf; font-size: 24px; animation-delay: 1.6s; }
+.h6 { right: 27%; bottom: 18%; color: #ff4f9a; font-size: 30px; animation-delay: 1.7s; }
+.h7 { left: 42%; top: 10%; color: #ffc0da; font-size: 20px; animation-delay: 1.85s; }
+.h8 { right: 41%; bottom: 10%; color: #ff80b8; font-size: 22px; animation-delay: 1.95s; }
+.h9 { left: 48%; top: 29%; color: #ffafd0; font-size: 20px; animation-delay: 2.05s; }
+.h10 { right: 32%; top: 31%; color: #ff6aaa; font-size: 24px; animation-delay: 2.15s; }
+
+
+/* Animations */
+
+@keyframes openGiftLid {
+  0% {
+    transform: translateX(-50%) translateY(0) rotate(0);
+  }
+
+  45% {
+    transform: translateX(-50%) translateY(-28px) rotate(-4deg);
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(-150px) rotate(-16deg);
+    opacity: 0;
+  }
+}
+
+@keyframes giftBodyDown {
+  to {
+    transform: translateX(-50%) translateY(70px) scale(0.92);
+    opacity: 0;
+  }
+}
+
+@keyframes giftStageFade {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes revealGirlContent {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateY(-8px) scale(1.04);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes babyFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+@keyframes heartPopFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(28px) scale(0.4) rotate(-8deg);
+  }
+
+  20% {
+    opacity: 0.9;
+  }
+
+  55% {
+    transform: translateY(-18px) scale(1.12) rotate(7deg);
+  }
+
+  100% {
+    opacity: 0.72;
+    transform: translateY(0) scale(1) rotate(-3deg);
+  }
+}
+
+@keyframes sideItemPop {
+  to {
+    opacity: 0.96;
+    transform: translateY(0) rotate(var(--item-rotate, 0deg)) scale(1);
+  }
+}
+
+@keyframes sideItemFloat {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+@keyframes messageBoxPop {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .gift-scene {
+    width: 100%;
+    min-height: 640px;
+  }
+
+  .gift-box-stage {
+    width: 220px;
+    height: 190px;
+  }
+
+  .gift-box-body {
+    width: 205px;
+    height: 134px;
+  }
+
+  .gift-lid {
+    width: 232px;
+    height: 64px;
+  }
+
+  .ribbon-label {
+    padding: 12px 36px;
+  }
+
+  .ribbon-text {
+    font-size: 20px;
+  }
+
+  .girl-hero {
+    height: 390px;
+  }
+
+  .girl-baby-img {
+    width: min(82vw, 286px);
+  }
+
+  .girl-side-item {
+    width: 76px;
+  }
+
+  .girl-dress {
+    left: 1%;
+    bottom: 76px;
+  }
+
+  .teddy-bear {
+    right: 1%;
+    bottom: 68px;
+  }
+
+}
+
+.girl-dress {
+  left: 4%;
+  bottom: 76px;
+  transform: rotate(-10deg) scale(0.5);
+  animation-delay: 1.45s, 2.2s;
+  --item-rotate: -10deg;
+}
+
+.teddy-bear {
+  right: 3%;
+  bottom: 68px;
+  transform: rotate(9deg) scale(0.5);
+  animation-delay: 1.65s, 2.35s;
+  --item-rotate: 9deg;
+}
+
+/* =========================
+   Girl Message Text
+========================= */
+
+.girl-message-text {
+  position: relative;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: -4px;
+  opacity: 0;
+  transform: translateY(18px) scale(0.92);
+}
+
+body.intro-finished .girl-message-text {
+  animation: girlMessagePop 0.7s cubic-bezier(0.2, 1.3, 0.3, 1) 1.75s forwards;
+}
+
+.girl-message-text p {
+  margin: 0;
+  color: #e85d9e;
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 1.2;
+  text-align: center;
+  text-shadow:
+    -2px -2px 0 #ffffff,
+     2px -2px 0 #ffffff,
+    -2px  2px 0 #ffffff,
+     2px  2px 0 #ffffff,
+     0 8px 20px rgba(232, 93, 158, 0.24);
+}
+
+.mini-heart {
+  display: inline-block;
+  font-size: 24px;
+  animation: miniHeartBounce 1.6s ease-in-out infinite;
+}
+
+.mini-heart:first-child {
+  animation-delay: -0.3s;
+}
+
+.mini-heart:last-child {
+  animation-delay: -0.9s;
+}
+
+@keyframes girlMessagePop {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.92);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.06);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes miniHeartBounce {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-5px) scale(1.12);
+  }
+}
+
+@media (max-width: 480px) {
+  .girl-message-text {
+    gap: 6px;
+  }
+
+  .girl-message-text p {
+    font-size: 25px;
+  }
+
+  .mini-heart {
+    font-size: 20px;
+  }
+}

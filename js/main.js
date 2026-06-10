@@ -28,21 +28,63 @@ function renderSecretPage() {
 
 function renderGirlPage() {
   app.innerHTML = `
-    <section class="page girl-page">
-      <div class="card">
-        <p class="eyebrow">Gender Reveal</p>
+    <section class="page girl-page girl-reveal-page">
+      <div class="girl-scene gift-scene">
+        <div class="gift-box-stage" aria-hidden="true">
+          <div class="gift-lid">
+            <span class="gift-lid-ribbon"></span>
+          </div>
 
-        <h1>It's a Girl!</h1>
+          <div class="gift-box-body">
+            <span class="gift-box-ribbon vertical"></span>
+            <span class="gift-box-ribbon horizontal"></span>
+          </div>
+        </div>
 
-        <p class="emoji">🎀💕👶</p>
+        <div class="girl-reveal-content">
+          <div class="ribbon-label">
+            <span class="ribbon-text">축하합니다</span>
+          </div>
 
-        <p class="message">
-          우리 아기는 사랑스러운 공주님이에요
-        </p>
+          <div class="girl-hero">
+            <div class="heart-burst" aria-hidden="true">
+              <span class="heart h1">♥</span>
+              <span class="heart h2">♥</span>
+              <span class="heart h3">♥</span>
+              <span class="heart h4">♥</span>
+              <span class="heart h5">♥</span>
+              <span class="heart h6">♥</span>
+              <span class="heart h7">♥</span>
+              <span class="heart h8">♥</span>
+              <span class="heart h9">♥</span>
+              <span class="heart h10">♥</span>
+            </div>
 
-        <p class="sub-message">
-          따뜻한 축복으로 함께 맞이해주세요.
-        </p>
+            <img
+              class="girl-side-item girl-dress"
+              src="images/girl-dress.png"
+              alt="여아 드레스"
+            />
+
+            <img
+              class="girl-baby-img"
+              src="images/baby-girl.png"
+              alt="여자 아기 일러스트"
+            />
+
+            <img
+              class="girl-side-item teddy-bear"
+              src="images/teddy-bear.png"
+              alt="곰돌이 인형"
+            />
+          </div>
+
+          <div class="girl-message-text">
+            <span class="mini-heart">💕</span>
+            <p>공주님이 찾아왔어요!</p>
+            <span class="mini-heart">💕</span>
+          </div>
+        </div>
       </div>
     </section>
   `;
@@ -196,6 +238,7 @@ for (let i = 0; i < questionCount; i++) {
   }, fadeDelay);
 
   setTimeout(() => {
+    document.body.classList.add("intro-finished");
     overlay.remove();
   }, fadeDelay + 1000);
 }
