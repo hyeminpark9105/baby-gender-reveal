@@ -92,21 +92,63 @@ function renderGirlPage() {
 
 function renderBoyPage() {
   app.innerHTML = `
-    <section class="page boy-page">
-      <div class="card">
-        <p class="eyebrow">Gender Reveal</p>
+    <section class="page boy-page boy-reveal-page">
+      <div class="boy-scene gift-scene">
+        <div class="gift-box-stage" aria-hidden="true">
+          <div class="gift-lid boy-gift-lid">
+            <span class="gift-lid-ribbon"></span>
+          </div>
 
-        <h1>It's a Boy!</h1>
+          <div class="gift-box-body boy-gift-body">
+            <span class="gift-box-ribbon vertical"></span>
+            <span class="gift-box-ribbon horizontal"></span>
+          </div>
+        </div>
 
-        <p class="emoji">🧸💙👶</p>
+        <div class="boy-reveal-content">
+          <div class="ribbon-label boy-ribbon-label">
+            <span class="ribbon-text">축하합니다</span>
+          </div>
 
-        <p class="message">
-          우리 아기는 사랑스러운 왕자님이에요
-        </p>
+          <div class="boy-hero">
+            <div class="boy-heart-burst" aria-hidden="true">
+              <span class="boy-heart bh1">♥</span>
+              <span class="boy-heart bh2">♥</span>
+              <span class="boy-heart bh3">♥</span>
+              <span class="boy-heart bh4">♥</span>
+              <span class="boy-heart bh5">♥</span>
+              <span class="boy-heart bh6">♥</span>
+              <span class="boy-heart bh7">♥</span>
+              <span class="boy-heart bh8">♥</span>
+              <span class="boy-heart bh9">♥</span>
+              <span class="boy-heart bh10">♥</span>
+            </div>
 
-        <p class="sub-message">
-          따뜻한 축복으로 함께 맞이해주세요.
-        </p>
+            <img
+              class="boy-side-item boy-shoes"
+              src="images/boy-shoes.png"
+              alt="남자아기 운동화"
+            />
+
+            <img
+              class="boy-baby-img"
+              src="images/baby-boy.png"
+              alt="남자 아기 일러스트"
+            />
+
+            <img
+              class="boy-side-item toy-car"
+              src="images/toy-car.png"
+              alt="자동차 장난감"
+            />
+          </div>
+
+          <div class="boy-message-text">
+            <span class="boy-mini-heart">💙</span>
+            <p>왕자님이 찾아왔어요!</p>
+            <span class="boy-mini-heart">💙</span>
+          </div>
+        </div>
       </div>
     </section>
   `;
