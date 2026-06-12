@@ -149,7 +149,7 @@ Settings → Pages
 
 ```text
 Source: Deploy from a branch
-Branch: main 
+Branch: master 
 Folder: /root
 ```
 
