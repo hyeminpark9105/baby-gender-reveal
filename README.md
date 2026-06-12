@@ -62,7 +62,7 @@ Fork → Create fork
 
 그러면 이 웹카드가 내 GitHub 계정으로 복사됩니다.
 
-<img width="200" alt="Fork 버튼" src="https://github.com/user-attachments/assets/ee04e234-8aa9-4794-bd64-531ffc8add6b" />
+<img width="200" alt="Fork 버튼" src="https://github.com/user-attachments/assets/9ce622d0-2e14-4997-b9a5-2515776cd574" />
 
 ---
 
