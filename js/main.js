@@ -3,24 +3,43 @@ const babyNickname = CONFIG.babyNickname || "우리 아기";
 
 function renderSecretPage() {
   app.innerHTML = `
-    <section class="page secret-page">
-      <div class="card">
-        <p class="eyebrow">Gender Reveal</p>
+    <section class="page secret-page secret-reveal-page">
+      <div class="secret-scene">
+        <div class="secret-ribbon-label">
+          <span class="ribbon-text">Coming Soon</span>
+        </div>
 
-        <h1>두근두근...</h1>
+        <div class="secret-gift-wrap">
+          <div class="secret-question-burst" aria-hidden="true">
+            <span class="secret-question sq1">?</span>
+            <span class="secret-question sq2">?</span>
+            <span class="secret-question sq3">?</span>
+            <span class="secret-question sq4">?</span>
+            <span class="secret-question sq5">?</span>
+            <span class="secret-question sq6">?</span>
+          </div>
 
-        <p class="message">
-          아직 ${babyNickname}의 성별은 비밀이에요 🤍
-        </p>
+          <div class="secret-gift-box" aria-hidden="true">
+            <div class="secret-gift-lid">
+              <span class="secret-gift-lid-ribbon"></span>
+            </div>
 
-        <p class="sub-message">
+            <div class="secret-gift-body">
+              <span class="secret-gift-ribbon vertical"></span>
+              <span class="secret-gift-ribbon horizontal"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="secret-message-text">
+          <span class="secret-mini-heart">🤍</span>
+          <p>아직 ${babyNickname}의 성별은 비밀이에요</p>
+          <span class="secret-mini-heart">🤍</span>
+        </div>
+
+        <p class="secret-sub-message">
           공개 시간이 되면 이 페이지가 바뀔 예정이에요.
         </p>
-
-        <div class="button-row">
-          <span class="pill pink">Girl?</span>
-          <span class="pill blue">Boy?</span>
-        </div>
       </div>
     </section>
   `;
