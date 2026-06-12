@@ -79,7 +79,7 @@ js/config.js
 ```javascript
 const CONFIG = {
   gender: "secret",
-  babyNickname: "튼튼이"
+  babyNickname: "뽀튼이"
 };
 ```
 
